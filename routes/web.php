@@ -32,6 +32,10 @@ Route::get('/view_product_details/{id}/{name}',[Frontendcontroller::class,'view_
 Route::post('/add-to-cart',[Cartcontroller::class,'addtocart']) ;
 Route::middleware(['auth'])->group(function(){
     Route::get('/view_cart_item',[Cartcontroller::class,'view_cart_item']) ;
+    Route::post('/delete_from_cart',[Cartcontroller::class,'delete_from_cart']) ;
+    Route::post('/edit_quantity',[Cartcontroller::class,'edit_quantity']) ;
+    Route::get('/cheakout',[Cartcontroller::class,'cheakout']) ;
+    Route::post('/place_order',[Cartcontroller::class,'placeorder']) ;
 });
 
 
