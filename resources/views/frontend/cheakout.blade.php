@@ -127,7 +127,7 @@
 
                             @php $total = 0; @endphp
                             @foreach ($cart_data as $cart_data)
-                                @if ($cart_data->cartproduct->quantity >= $cart_data->prod_qty)
+                                {{-- @if ($cart_data->cartproduct->quantity >= $cart_data->prod_qty) --}}
                                 <tr class="product_data">
                                     <td>{{ $cart_data->cartproduct->name }}</td>
                                     <td>{{ $cart_data->cartproduct->selling_price * $cart_data->prod_qty }}</td>
@@ -141,14 +141,28 @@
                                 @php $total += $cart_data->cartproduct->selling_price * $cart_data->prod_qty;
                                 @endphp
 
-                                @endif
+                                {{-- @endif --}}
                             @endforeach
 
                         </table>
                         <div class=" bg-secondary p-3 ">
                             <h4> Total : {{ $total }}</h4>
                         </div>
-                        <button type="submit" class="btn btn-primary float-end m-3">Place Order</button>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-primary float-end m-3">Place Order | COD</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+
+                       
+                        <div class="col-6">
+                            <button type="button" class="btn btn-warning float-end m-3 razorpayButton "><a href="{{url('/payment_go')}}">Pay Now</a></button>
+                        </div>
+                       
                 </div>
             </div>
         </form>

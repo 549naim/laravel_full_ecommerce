@@ -9,10 +9,17 @@ use Illuminate\Http\Request;
 
 class Frontendcontroller extends Controller
 {
+    public function mainhome() {
+        $product= Product::where('trending','1')->get();
+        $category= Category::all();
+        return view('index',compact('product','category'));
+    }
+
     public function homeindex() {
         $product= Product::where('trending','1')->get();
-        
-        return view('frontend.index',compact('product'));
+        $trending_category= Category::where('populer','1')->get();
+        $category= Category::all();
+        return view('frontend.index',compact('product','category','trending_category'));
     }
 
     public function allcategoryitems(){
@@ -27,12 +34,16 @@ class Frontendcontroller extends Controller
             return view('frontend.cate_details_product',compact('c_product'));
         }
         else {
-            return redirect('/')->with('status',"Category product not found");
+            return redirect('/homeindex')->with('status',"Category product not found");
         }
     }
     public function view_product_details($id){
         $data = Product::find($id);
         return view('frontend/product_details_page',compact('data'));
+    }
+    public function all_product_item(){
+        $data = Product::all();
+        return view('all_product_item',compact('data'));
     }
 
 

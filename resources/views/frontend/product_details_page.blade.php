@@ -73,9 +73,9 @@
                                     </table>
                                 </div>
                                 <div class="col-4">
-                                    @if ($data->quantity > 0)
+                                   
                                         <a class="btn btn-primary addtocart_btn  " href=""> Add To Cart</a>
-                                    @endif
+                                   
                                 </div>
                                 <div class="col-4">
                                     <a class="btn btn-success  " href=""> Add to watchlist</a>

@@ -47,13 +47,34 @@
   
   
           <li class="nav-item">
-            <a class="nav-link text-white " href="./virtual-reality.html">
+            <a class="nav-link text-white "  href="{{url('/all_orders')}}">
   
               <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                 <i class="material-icons opacity-10">view_in_ar</i>
               </div>
   
-              <span class="nav-link-text ms-1">Virtual Reality</span>
+              <span class="nav-link-text ms-1">Orders</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-white "  href="{{url('/all_orders_history')}}">
+  
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">view_in_ar</i>
+              </div>
+  
+              <span class="nav-link-text ms-1">Orders Hostoty</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white "  href="{{url('/all_users')}}">
+  
+              <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                <i class="material-icons opacity-10">view_in_ar</i>
+              </div>
+  
+              <span class="nav-link-text ms-1">Users</span>
             </a>
           </li>
   

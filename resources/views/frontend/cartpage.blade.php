@@ -32,6 +32,10 @@
         .qty {
             text-align: center;
         }
+        .text-1{
+            text-align: center;
+            background-color:red;
+        }
     </style>
     </head>
 
@@ -68,7 +72,7 @@
                                     <a href="" class="btn btn-danger delete_prod">Delete</a>
                                 </td>
                                 <td>
-                                    @if ($cart_data->cartproduct->quantity >= $cart_data->prod_qty)
+                                   
                                         <div class="i-1">
 
                                             <table>
@@ -90,9 +94,7 @@
                                             @endphp
 
                                         </div>
-                                    @else
-                                        <h6>Qunatity Not Available</h6>
-                                    @endif
+                                    
 
                                 </td>
 
@@ -104,15 +106,25 @@
                     <br>
 
                 </div>
-                <div class="col-2 my-5">
-                    <div class=" p-3 text-center">
-                        <h4> Total : {{ $total }}</h4>
+                
+                @if ($cart_data->count() > 0)
+                    <div class="col-2 my-5">
+                        <div class=" p-3 text-center">
+                            <h4> Total : {{ $total }}</h4>
+                        </div>
+                        <hr>
+                        
+                        <div class=" bg-secondary p-3 text-center">
+                            <a href="{{ url('/cheakout') }}" class="btn btn-primary">Cheakout</a>
+                        </div>
                     </div>
-                    <hr>
-                    <div class=" bg-secondary p-3 text-center">
-                        <a href="{{ url('/cheakout') }}" class="btn btn-primary">Cheakout</a>
+                @else
+                    <div class="col-2 my-5">
+                       <h3 class="text-1">There is no item in Cart</h3>
                     </div>
-                </div>
+                @endif
+                
+                
             </div>
 
 

@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
 class Productcontroller extends Controller
@@ -99,5 +102,39 @@ class Productcontroller extends Controller
         $data->tax = $request->tax;
         $data->save();
         return redirect('/showallproducts');
+    }
+
+    public function allorders() {
+        $orders=Order::where ('status','0')->get();
+        return view('admin.allorders',compact('orders'));
+    }
+
+    public function allordershistory() {
+        $orders=Order::where ('status','1')->get();
+      
+        return view('admin.allordershistory',compact('orders'));
+    }
+
+    public function allusers() {
+        $user=User::all();
+        return view('admin.allusers', compact('user'));
+    }
+
+    public function view_order_admin($id)
+    {
+        $order_view = Order::where ('id',$id)->first();
+        return view('admin.view_order_admin',compact('order_view'));
+    }
+    public function update_product_status(Request $request, $id){
+       $order_status = Order::find($id);
+       $order_status->status = $request->input('status');
+       $order_status->update();
+       return redirect('/all_orders');
+    }
+
+    public function userDetails($id){
+       $user=User::find($id);
+      
+       return view('admin.user_details_from_admin',compact('user'));
     }
 }

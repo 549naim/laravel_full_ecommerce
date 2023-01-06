@@ -84,8 +84,7 @@ class Cartcontroller extends Controller
     }
 
     public function cheakout(){
-         
-        // $old_cart_data= Cart::where ('user_id',Auth::id())->get();
+        $old_cart_data= Cart::where ('user_id',Auth::id())->get();
         // foreach($old_cart_data as $item)
         // {
         //     if(!Product::where('id',$item->prod_id)->where('quantity','>=',$item->prod_qty)->exists())
@@ -94,11 +93,13 @@ class Cartcontroller extends Controller
         //         $removeitem->delete();
         //     }
         // }
+        
         $cart_data= Cart::where ('user_id',Auth::id())->get();
         return view('frontend.cheakout',compact('cart_data'));
     }
 
     public function placeorder(Request $request){
+        $cart_data= Cart::where ('user_id',Auth::id())->get();
         $order=new Order();
         $order->name=$request->input('name');
         $order->user_id=Auth::id();
@@ -109,7 +110,14 @@ class Cartcontroller extends Controller
         $order->state=$request->input('state');
         $order->country=$request->input('country');
         $order->postalcode=$request->input('postalcode');
-        $order->traking_num='e_com'.rand(1,10000);
+        $order->traking_num='e_com'.rand(1,5000000);
+        $total=0;
+        $cart_total=Cart::where('user_id',Auth::id())->get();
+        foreach ($cart_total as $item)
+        {
+            $total += $item->cartproduct->selling_price * $item->prod_qty;
+        }
+        $order->total = $total;
         $order->save();
 
       

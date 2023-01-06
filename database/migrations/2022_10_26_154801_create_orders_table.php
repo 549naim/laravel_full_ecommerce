@@ -19,6 +19,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('email');
+            $table->string('phone');
+            $table->string('amount');
+            $table->string('transaction_id');
+            $table->string('currency');
             $table->string('phone_number');
             $table->string('city');
             $table->string('state');

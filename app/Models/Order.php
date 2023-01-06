@@ -14,6 +14,10 @@ class Order extends Model
         'user_id',
         'address',
         'email',
+        'phone',
+        'amount',
+        'transaction_id',
+        'currency',
         'phone_number',
         'city',
         'state',
@@ -24,4 +28,7 @@ class Order extends Model
         'traking_num',
         
     ];
+    public function orderitems(){
+        return $this->hasMany(Order_items::class);
+    }
 }

@@ -6,13 +6,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img height="500" src="product_image{{('/1664982420.jfif')}}" class="d-block w-100" >
+        <img height="500" src="product_image{{('/c-2.jfif')}}" class="d-block w-100" >
       </div>
       <div class="carousel-item">
-        <img height="500" src="product_image{{('/1664982420.jfif')}}" class="d-block w-100" >
+        <img height="500" src="product_image{{('/c-1.jpg')}}" class="d-block w-100" >
       </div>
       <div class="carousel-item">
-        <img height="500" src="product_image{{('/1664982420.jfif')}}" class="d-block w-100" >
+        <img height="500" src="product_image{{('/c-3.jfif')}}" class="d-block w-100" >
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
